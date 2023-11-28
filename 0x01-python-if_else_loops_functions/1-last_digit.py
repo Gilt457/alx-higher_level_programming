@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import random
-
 def last_digit(number):
     if number < 0:
         return number % -10
