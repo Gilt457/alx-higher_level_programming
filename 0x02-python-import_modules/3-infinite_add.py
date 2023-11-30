@@ -7,4 +7,3 @@ if __name__ == "__main__":
     for index, argument in enumerate(sys.argv[1:]):  
         sum += int(argument)
     print("{}".format(sum))
-
