@@ -1,13 +1,8 @@
 #!/usr/bin/python3
-def add_tuple(tuple_a=(), tuple_b=()):
-    """Add two tuples element-wise."""
-    # Pad the shorter tuple with zeros
-    len_a = len(tuple_a)
-    len_b = len(tuple_b)
-    max_len = max(len_a, len_b)
-    tuple_a += (0,) * (max_len - len_a)
-    tuple_b += (0,) * (max_len - len_b)
 
-    # Use a list comprehension to add the elements
-    new_tuple = tuple([a + b for a, b in zip(tuple_a, tuple_b)])
-    return new_tuple
+def add_tuple(tuple_a=(), tuple_b=()):
+    # Pad the tuples with zeros if they have less than two elements
+    tuple_a += (0, 0)
+    tuple_b += (0, 0)
+    # Add the first two elements of each tuple and return the result
+    return tuple_a[0] + tuple_b[0], tuple_a[1] + tuple_b[1]
