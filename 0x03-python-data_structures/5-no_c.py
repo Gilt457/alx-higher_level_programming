@@ -1,10 +1,7 @@
+#!/usr/bin/python3
+
 def no_c(my_string):
-    # initialize an empty string to store the result
-    result = ""
-    # loop through each character in the input string
-    for char in my_string:
-        # if the character is not c or C, append it to the result
-        if char not in "cC":
-            result += char
-    # return the result
-    return result
+    """Remove all occurrences of 'c' or 'C' from a string."""
+    # Use a list comprehension to filter out the unwanted characters
+    updated_str = ''.join([i for i in my_string if i not in 'cC'])
+    return updated_str
