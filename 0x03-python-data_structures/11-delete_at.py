@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-def delete_at(my_list=None, idx=0):
-    """Delete an element from a list at a given index."""
-    if my_list is None:
-        my_list = []
-    if 0 <= idx < len(my_list):
-        my_list.pop(idx)
+def delete_at(my_list=[], idx=0):
+    if idx < 0 or idx > len(my_list) - 1:
+        return my_list
+    else:
+        del my_list[idx]
     return my_list
