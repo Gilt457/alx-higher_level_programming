@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-def delete_at(my_list=[], idx=0):
-    if idx < 0 or idx > len(my_list) - 1:
-        return my_list
-    else:
-        del my_list[idx]
-    return my_list
+def remove_element(list_to_modify=[], position=0):
+    """Removes an element from a list at a given position."""
+    if position >= 0 and position < len(list_to_modify):
+        list_to_modify.pop(position)
+    return list_to_modify
