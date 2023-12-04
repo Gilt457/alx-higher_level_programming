@@ -21,12 +21,12 @@ void reverse_list(listint_t **head)
 }
 
 /**
- * check_palindrome - checks if a linked list is a palindrome
+ * is_palindrome - checks if a linked list is a palindrome
  * @head: double pointer to the linked list
  *
  * Return: 1 if it is, 0 if not
  */
-int check_palindrome(listint_t **head)
+int is_palindrome(listint_t **head)
 {
 	listint_t *slow = *head, *fast = *head;
 	listint_t *temp = *head, *rev = NULL;
