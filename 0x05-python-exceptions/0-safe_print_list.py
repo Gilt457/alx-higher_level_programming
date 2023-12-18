@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module that defines a function to print x elements of a list."""
+
 
 def safe_print_list(my_list=[], x=0):
     """Print x elememts of a list.
@@ -10,12 +12,12 @@ def safe_print_list(my_list=[], x=0):
     Returns:
         The number of elements printed.
     """
-    ret = 0
-    for i in range(x):
+    printed = 0
+    for item in my_list[:x]:
         try:
-            print("{}".format(my_list[i]), end="")
-            ret += 1
-        except IndexError:
+            print(item, end="")
+            printed += 1
+        except Exception:
             break
-    print("")
-    return (ret)
+    print()
+    return printed
