@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module contains a function to print a square."""
 
+
 def print_square(size):
     """This function prints a square using the # symbol.
 
