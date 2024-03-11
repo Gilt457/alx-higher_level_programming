@@ -1,4 +1,5 @@
-#!/usr/bin/env node
-const [firstArg, secondArg] = [process.argv[2], process.argv[3]];
+#!/usr/bin/node
+const argv0 = process.argv[2];
+const argv1 = process.argv[3];
 
-console.log(firstArg + ' is ' + secondArg);
+console.log(`${argv0} is ${argv1}`);
