@@ -1,8 +1,10 @@
-#!/usr/bin/env node
-const arg = process.argv.slice(2)[0];
+#!/usr/bin/node
+const x = process.argv[2];
 
-if (isNaN(Number(arg))) {
-  console.error('Missing number of occurrences');
+if (!parseInt(x)) {
+  console.log('Missing number of occurrences');
 } else {
-  Array.from({ length: Number(arg) }, () => console.log('C is fun'));
+  for (let i = 0; i < x; i++) {
+    console.log('C is fun');
+  }
 }
