@@ -1,9 +1,6 @@
 #!/usr/bin/node
-const computeFactorial = num => {
-  if (num < 0) return -1;
-  if (num === 0 || isNaN(num)) return 1;
-  return num * computeFactorial(num - 1);
-};
+function factorial (n) {
+  return n === 0 || isNaN(n) ? 1 : n * factorial(n - 1);
+}
 
-const numberToCalculate = Number(process.argv[2]);
-console.log(computeFactorial(numberToCalculate));
+console.log(factorial(Number(process.argv[2])));
