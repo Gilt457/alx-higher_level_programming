@@ -1,31 +1,30 @@
 #!/usr/bin/python3
 """
-This script takes an argument and displays all values in the states
-where 'name' matches the argument from the database 'hbtn_0e_0_usa'.
-This time, the script is safe from MySQL injections!
+This script accepts an input parameter and
+outputs all entries from the 'states' table
+where the 'name' column matches the input
+in the 'hbtn_0e_0_usa' database.
+It is designed to be secure against
+SQL injection attacks.
 """
 
-import MySQLdb
+import MySQLdb as db
 from sys import argv
 
-
-def fetch_states(user, password, db_name, state_name):
-    """
-    Connect to the database and fetch states where 'name' matches the argument.
-    """
-    connection = MySQLdb.connect(host="localhost", port=3306,
-                                 user=user, passwd=password, db=db_name)
-    cursor = connection.cursor()
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-    states = cursor.fetchall()
-    cursor.close()
-    connection.close()
-    return states
-
-
 if __name__ == "__main__":
-    user_input = argv[1:5]
-    states = fetch_states(*user_input)
-    for state in states:
-        print(state)
+    """
+    Connect to the database and retrieve the
+    list of states from it.
+    """
+    db_connect = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
+
+    db_cursor = db_connect.cursor()
+    db_cursor.execute(
+        "SELECT * FROM states WHERE name LIKE \
+                    BINARY %(name)s ORDER BY states.id ASC", {'name': argv[4]})
+
+    rows_selected = db_cursor.fetchall()
+
+    for row in rows_selected:
+        print(row)
